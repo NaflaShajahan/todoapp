@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>My Todo</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body background="back.jpg">
+        <img class="back">
+        <div class="loginbox">
+            <img src="user1.png" class="user1">
+            <h1>Login Here</h1>
+            <form action="javascript:validate(redirect)" >
+                <p> Username</p>
+                <input type="text" name="" required placeholder="Enter Username" id="username">
+                <span id="user"></span>
+                <p> Password</p>
+                <input type="password" name="" placeholder="Enter Password" required id="password"><br>
+                <span id="pass"></span>
+                <input type="submit"  name="" value="Login">
+                <a href="#">Lost your password?</a><br>
+                <a href="#">Don't have an acoount?</a>
+            </form>
+            <script src="valid.js"></script>
+        </div>
+        <script src="js/jquery-2.1.4.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/ajax-utils.js"></script>
+        <script src="js/script.js"></script>
+    </body>
+</html>

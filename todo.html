@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        
+        <title>todo</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+    </head>
+    <body>
+        <!--table>
+            <tr>
+                <td style="border: 1px solid rgb(78, 4, 148); padding-right: 0; width: 15%;">Userid</td>
+                <td style="border: 1px solid rgb(78, 4, 148); padding-right: 0; width: 8%;">Id</td>
+                <td style="border: 1px solid rgb(78, 4, 148); padding-right: 0; width: 60%;">Title</td>
+                <td style="border: 1px solid rgb(78, 4, 148); padding-right: 0; width: 102;">Completed</td>
+            </tr>
+        </table-->
+        <div id="first" >
+        
+        </div>
+        
+        
+        <script>
+            store=null;
+            var table = fetch("https://jsonplaceholder.typicode.com/todos");
+            //promise()
+            table.then(Response => {
+                return Response.json();
+               
+            }).then(resp => {
+                
+            store = resp;
+                 console.log("Response.json",store);
+            var show="<table border='1|1'>"//table structure
+                show+="<tr>";
+                    show+="<td>Userid</td>";
+                    show+="<td>Id</td>"; 
+                    show+="<td>Title</td>";
+                    show+="<td>Completed</td>";
+                show+="</tr>";
+            for(var i=0; i<resp.length;i++){
+                console.log(resp.length)
+                show+="<tr>";
+                    show+="<td style='width:10%'>"+resp[i].userId+"</td>";
+                    show+="<td style='width:5%'>"+store[i].id+"</td>";
+                    show+="<td style='padding:5px'>"+store[i].title+"</td>";
+                    var check=store[i].completed==true ? true:false;
+
+                    show+="<td style='width:10%'><input type='checkbox' onchange=input(this) value="+check+"></td>";
+                show+="</tr>";  
+            }
+
+            show+="</table>";
+
+            document.getElementById('first').innerHTML=show;
+            var checkbox = document.querySelectorAll("input[type='checkbox']");
+            for(var i=0; i<checkbox.length;i++) {
+                document.querySelectorAll("input[type='checkbox'][value=true]")[i].checked=true;
+
+            }   
+            })
+            var temp=0;
+            function input(checkbox){
+                checkbox.checked==true ? temp++:temp--;
+                console.log(temp)
+                console.log(checkbox.checked);
+                new Promise(function(resolve) {
+                    temp==5 ? alert("Congrats, 5 Tasks have been Successfully Completed"):null;
+                })
+            }
+            
+            
+        </script>
+    </body>
+</html>
